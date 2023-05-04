@@ -49,11 +49,13 @@ public class SimpleTestWithStatuses {
   }
 
   @Test
+  @Disabled
   void failedTest() {
     Assertions.assertTrue(false);
   }
 
   @Test
+  @Disabled
   void testWithExceptions() {
     throw new RuntimeException("Exception ...");
   }

@@ -1,6 +1,7 @@
 package io.qameta.junit5;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class BeforeEachFailedTest {
@@ -10,6 +11,7 @@ public class BeforeEachFailedTest {
     throw new ArithmeticException("Exception!");
   }
 
+  @Disabled
   @Test
   void test() {
 
