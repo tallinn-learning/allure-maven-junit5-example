@@ -30,7 +30,10 @@ jobs:
 
     - name: Build with Maven
       run: mvn clean test clean test -Dtest=SimpleTestWithStatuses
-
-
-        
-    
+      
+    - name: Generate Allure report
+      run: |
+        allure generate allure-results --clean
+        allure open
+      if: always()
+      
