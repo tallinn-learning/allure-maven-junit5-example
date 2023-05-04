@@ -30,19 +30,6 @@ jobs:
     - name: Build with Maven
       run: mvn clean test clean test -Dtest=SimpleTestWithStatuses
 
-    - name: Generate Allure report
-      uses: allure-framework/allure-github-action@v2.13.9
-      with:
-        version: 2.13.9
-        allure-command: "allure"
-        generate-command: "allure generate allure-results --clean -o allure-report"
-
-    - name: Upload Allure Report
-      uses: actions/upload-artifact@v2
-      with:
-        name: allure-report
-        path: allure-report
-
 
         
     
