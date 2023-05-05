@@ -13,11 +13,13 @@ on:
     branches: ['*']
   pull_request:
     branches: ['main']
+  workflow_dispatch:
+    inputs:
+      testclass:
+        description: 'Name of the test class to run'
+        required: true
     
-inputs:
-  testclass:
-    description: 'Name of the test class to run'
-    required: true
+
 
 jobs:
   build:
