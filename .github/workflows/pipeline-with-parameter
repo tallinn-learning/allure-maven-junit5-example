@@ -13,6 +13,11 @@ on:
     branches: ['*']
   pull_request:
     branches: ['main']
+    
+inputs:
+  testclass:
+    description: 'Name of the test class to run'
+    required: true
 
 jobs:
   build:
