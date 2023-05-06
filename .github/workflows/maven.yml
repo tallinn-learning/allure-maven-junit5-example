@@ -32,8 +32,11 @@ jobs:
     - name: Build with Maven
       run: mvn clean test clean test -Dtest=SimpleTestWithStatuses
       
-    - name: List directories after test
+    - name: List directories after test-1
       run: ls -la
+      
+    - name: List directories after test-2
+      run: ls -la target
 
       
     - name: Copy History
