@@ -56,7 +56,7 @@ jobs:
       run: ls -la target
       
     - name: List directories after build report-2
-      run: find . -maxdepth 3 -type d -name "allure-results"
+      run: ls -la target/allure-results
     
     - name: Publish Report
       if: always()
