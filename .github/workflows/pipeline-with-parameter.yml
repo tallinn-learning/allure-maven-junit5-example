@@ -1,25 +1,15 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
 name: Java CI with Maven parameter
 
 on:
-  push:
-    branches: ['*']
-  pull_request:
-    branches: ['main']
   workflow_dispatch:
     inputs:
       testclass:
         description: 'Name of the test class to run'
         required: true
-    
-
+      manual:
+        description: 'Whether to run the workflow manually'
+        default: 'false'
+        required: false
 
 jobs:
   build:
@@ -39,10 +29,10 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-         
 
       - name: Build with Maven
         run: mvn clean install
 
       - name: Run tests
+        if: ${{ github.event.inputs.manual == 'true' }}
         run: mvn test -Dtest=${{ steps.input.outputs.testclass }}
