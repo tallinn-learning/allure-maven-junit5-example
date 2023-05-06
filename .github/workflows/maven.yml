@@ -52,7 +52,7 @@ jobs:
           keep_reports: 20
           
     - name: List directories after build report-1
-      run: ls -la target/allure-results/target/allure-results
+      run: ls -la target/allure-results
       
     - name: List directories after build report-2
       run: ls -la allure-report/data/test-cases
