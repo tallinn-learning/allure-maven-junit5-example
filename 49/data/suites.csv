@@ -1,0 +1,7 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"skipped","Sat May 06 14:20:08 GMT 2023","Sat May 06 14:20:08 GMT 2023","0","","io.qameta.junit5.SimpleTestWithStatuses","","io.qameta.junit5.SimpleTestWithStatuses","skippedTest","skippedTest()",""
+"passed","Sat May 06 14:20:09 GMT 2023","Sat May 06 14:20:09 GMT 2023","47","","io.qameta.junit5.SimpleTestWithStatuses","","io.qameta.junit5.SimpleTestWithStatuses","testOutput","test features of allure: steps","this is a description 
+ of using 
+ allure reports"
+"broken","Sat May 06 14:20:08 GMT 2023","Sat May 06 14:20:08 GMT 2023","16","","io.qameta.junit5.SimpleTestWithStatuses","","io.qameta.junit5.SimpleTestWithStatuses","testWithExceptions","testWithExceptions()",""
+"failed","Sat May 06 14:20:08 GMT 2023","Sat May 06 14:20:09 GMT 2023","27","","io.qameta.junit5.SimpleTestWithStatuses","","io.qameta.junit5.SimpleTestWithStatuses","failedTest","failedTest()",""
