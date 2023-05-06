@@ -26,6 +26,6 @@ jobs:
           distribution: 'adopt'
           
       - name: Run tests
-        run: mvn test -Dtest="${{ steps.input.testClassName }}"
+        run: mvn test -Dtest=${{ inputs.testClassName }}
         
 
