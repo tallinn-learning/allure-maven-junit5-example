@@ -3,23 +3,18 @@ name: Java CI with Maven parameter
 on:
   workflow_dispatch:
     inputs:
-      testclass:
+      testClassName:
         description: 'Name of the test class to run'
         required: true
-      manual:
-        description: 'Whether to run the workflow manually'
-        default: 'false'
-        required: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Prompt for test class parameter
-        id: input
-        run: |
-          echo "::set-output name=testclass::$(read -p 'Enter test class name: ' inputval; echo $inputval)"
+      - name: Set Test Class Name
+        run: echo "The value of input parameter is --> ${{ inputs.testClassName }}"
+
 
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -31,9 +26,6 @@ jobs:
           distribution: 'adopt'
           
       - name: Run tests
-        if: ${{ github.event.inputs.manual == 'true' }}
-        run: |
-          run: echo "Test class: ${{ steps.input.outputs.testclass }}"; mvn test -Dtest=${{ steps.input.outputs.testclass }}
-
-
+        run: mvn test -Dtest="${{ steps.input.testClassName }}"
+        
 
