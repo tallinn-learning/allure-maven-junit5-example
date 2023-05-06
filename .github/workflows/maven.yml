@@ -51,8 +51,11 @@ jobs:
           allure_history: allure-history
           keep_reports: 20
           
-    - name: List directories after build report
-      run: ls -la
+    - name: List directories after build report-1
+      run: ls -la target
+      
+    - name: List directories after build report-2
+      run: ls -la allure-report
     
     - name: Publish Report
       if: always()
