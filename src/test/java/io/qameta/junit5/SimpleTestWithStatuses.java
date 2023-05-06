@@ -11,13 +11,14 @@ public class SimpleTestWithStatuses {
 
   @Test
   @Feature("Allure illistration feature")
-  @Severity(SeverityLevel.CRITICAL)
+  @Severity(SeverityLevel.NORMAL)
   @DisplayName("test features of allure: steps")
   @Description("this is a description \n of using \n allure reports")
   void testOutput() throws IOException {
     firstStep();
     secondStep();
-    attachment();
+    // 3
+    //attachment();
   }
 
   @Step
@@ -30,12 +31,15 @@ public class SimpleTestWithStatuses {
     System.out.println("@BeforeAll");
   }
 
-  @Step
+  //@Step
   @Attachment
   private String secondStep() {
+    Assertions.assertTrue( true );
     return "text attachment";
   }
 
+
+  @Step
   @Attachment(value = "allure.png")
   private byte[] attachment() throws IOException {
     File image = new File("src/test/resources/allure.png");
@@ -44,18 +48,20 @@ public class SimpleTestWithStatuses {
 
 
   @Test
+  @Disabled
+  @Feature("Allure illistration feature")
   void skippedTest() {
     Assumptions.assumeTrue(false);
   }
 
   @Test
-  @Disabled
+  @Feature("Feature killer")
   void failedTest() {
     Assertions.assertTrue(false);
   }
 
   @Test
-  @Disabled
+  @Feature("Feature killer")
   void testWithExceptions() {
     throw new RuntimeException("Exception ...");
   }
