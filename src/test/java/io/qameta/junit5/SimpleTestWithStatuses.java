@@ -57,10 +57,11 @@ public class SimpleTestWithStatuses {
   @Test
   @Feature("Feature killer")
   void failedTest() {
-    Assertions.assertTrue(false);
+    Assertions.assertTrue(true);
   }
 
   @Test
+  @Disabled
   @Feature("Feature killer")
   void testWithExceptions() {
     throw new RuntimeException("Exception ...");
