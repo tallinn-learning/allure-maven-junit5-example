@@ -33,8 +33,7 @@ jobs:
       - name: Run tests
         if: ${{ github.event.inputs.manual == 'true' }}
         run: |
-          echo "Test class: ${{ steps.input.outputs.testclass }}"
-          mvn test -Dtest=${{ steps.input.outputs.testclass }}
+          run: echo "Test class: ${{ steps.input.outputs.testclass }}"; mvn test -Dtest=${{ steps.input.outputs.testclass }}
 
 
 
