@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven - manual run and prepare Allure
+name: Java CI with Maven - manual run and prepare Allure report
 
 on:
   push:
