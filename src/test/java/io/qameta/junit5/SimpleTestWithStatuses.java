@@ -7,6 +7,8 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 
+import static io.qameta.junit5.Helper.prepareEnvironmentPropertyReport;
+
 public class SimpleTestWithStatuses {
 
   @Test
@@ -22,6 +24,7 @@ public class SimpleTestWithStatuses {
   }
 
   @Step
+  @Epic("epic 2")
   private void firstStep() {
 
   }
@@ -29,6 +32,7 @@ public class SimpleTestWithStatuses {
   @BeforeAll
   static void init() {
     System.out.println("@BeforeAll");
+    prepareEnvironmentPropertyReport("N/A", "N/A");
   }
 
   //@Step
@@ -66,5 +70,6 @@ public class SimpleTestWithStatuses {
   void testWithExceptions() {
     throw new RuntimeException("Exception ...");
   }
+
 
 }
