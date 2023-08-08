@@ -6,13 +6,14 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
+name: Java CI with Maven - manual run and prepare Allure report
 
 on:
   push:
     branches: [  '*'   ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -30,10 +31,7 @@ jobs:
         cache: 'maven'
 
     - name: Build with Maven
-      run: mvn clean test clean test -Dtest=SimpleTestWithStatuses
-      
-    - name: List directories after test-1
-      run: ls -la
+      run: mvn clean test -Dtest=SimpleTestWithStatuses
       
     - name: List directories after test-2
       run: ls -la target
@@ -50,10 +48,10 @@ jobs:
       uses: simple-elf/allure-report-action@master
       if: always()
       with:
-          allure_results: ./target/allure-results
+          allure_results: target/allure-results
           
     - name: List directories after build report-1
-      run: ls -la target
+      run: pwd
       
     - name: List directories after build report-2
       run: ls -la target/allure-results
